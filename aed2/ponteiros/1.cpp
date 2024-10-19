@@ -10,10 +10,6 @@ int FATORES(int *param, int inteiro, int *contadorFatores) {
     int contadorParametro = 0;
 
     while (inteiro != 1 && *contadorFatores < 10) {
-        cout << "contador fatores -> " << *contadorFatores << endl;
-
-        cout << "valor do inteiro -> " << inteiro << endl;
-        cout << "tentei dividir por " << fatoresPrimos[*contadorFatores] << endl;
         if (inteiro % fatoresPrimos[*contadorFatores] == 0) {
             inteiro = inteiro / fatoresPrimos[*contadorFatores];
 
@@ -23,6 +19,7 @@ int FATORES(int *param, int inteiro, int *contadorFatores) {
             *contadorFatores = *contadorFatores + 1;
         }
     }
+    
 
     int indexParam = 0;
 
@@ -30,8 +27,7 @@ int FATORES(int *param, int inteiro, int *contadorFatores) {
         param[indexParam] = itr;
         indexParam++;
     }
-
-    *contadorParametro = (int) parametros.size();
+    *contadorFatores = (int) parametros.size();
 
     if (inteiro == 1) {
         return 1;
@@ -52,9 +48,7 @@ int main() {
         return 0;
     }
 
-    cout << "O numero lido foi " << numeroLido << endl;
-    cout << "contadorFatores no final = " << quantidadeFatores + 1 << endl;
-    for (int i = 0; i < quantidadeFatores + 1; i++) {
+    for (int i = 0; i < quantidadeFatores; i++) {
         cout << "Posicao " << i + 1 << " do vetor = " << vetorFatores[i] << endl;
     }
 
